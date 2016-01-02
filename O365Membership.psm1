@@ -315,7 +315,7 @@ function Get-O365Membership.Member{
         "ByDomain"  {
             $DistributionGoups=Get-DistributionGroup -Filter "{(WindowsEmailAddress -like '*@$DomainName') -and (WindowsEmailAddress -like '*-*') } "  
             foreach($DistributionGoup in $DistributionGoups){
-                $dlMembers = Get-DistributionGroupMember -Identity $DistributionGoup.PrimarySMTPAddress
+                $dlMembers += Get-DistributionGroupMember -Identity $DistributionGoup.PrimarySMTPAddress
             }      
         }
         "ByMemberUPN" {
